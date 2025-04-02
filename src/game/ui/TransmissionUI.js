@@ -39,6 +39,19 @@ export class TransmissionUI {
 
         // Add resize handle
         this.setupResizeHandle();
+        
+        // Add toggle button for collapsing/expanding the notepad
+        this.setupToggleButton();
+    }
+
+    setupToggleButton() {
+        const toggleButton = document.createElement('div');
+        toggleButton.className = 'notepad-toggle';
+        this.gameUI.appendChild(toggleButton);
+        
+        toggleButton.addEventListener('click', () => {
+            this.gameUI.classList.toggle('collapsed');
+        });
     }
 
     setupResizeHandle() {
