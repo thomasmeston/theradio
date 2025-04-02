@@ -424,17 +424,40 @@ export class GameEngine {
     }
 
     addMessage(text, type = 'info') {
+        // First, add to the fixed message log at the bottom of the screen
         const messageLog = document.getElementById('message-log');
-        if (!messageLog) {
-            console.error('Message log element not found');
-            return;
+        if (messageLog) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${type}`;
+            messageElement.textContent = text;
+            messageLog.appendChild(messageElement);
+            messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
-
-        const messageElement = document.createElement('div');
-        messageElement.className = `message ${type}`;
-        messageElement.textContent = text;
-        messageLog.appendChild(messageElement);
-        messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        
+        // Also add to the log container in the right-hand notepad
+        if (this.transmissionUI && this.transmissionUI.logContainer) {
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${type}`;
+            
+            // Add timestamp
+            const timestamp = document.createElement('span');
+            timestamp.className = 'timestamp';
+            const now = new Date();
+            timestamp.textContent = now.toLocaleTimeString();
+            logEntry.appendChild(timestamp);
+            
+            // Add message content
+            const messageContent = document.createElement('span');
+            messageContent.className = 'message-content';
+            messageContent.textContent = text;
+            logEntry.appendChild(messageContent);
+            
+            // Add to log container
+            this.transmissionUI.logContainer.appendChild(logEntry);
+            
+            // Scroll to bottom
+            this.transmissionUI.logContainer.scrollTop = this.transmissionUI.logContainer.scrollHeight;
+        }
     }
 
     saveGame() {
