@@ -424,17 +424,7 @@ export class GameEngine {
     }
 
     addMessage(text, type = 'info') {
-        // First, add to the fixed message log at the bottom of the screen
-        const messageLog = document.getElementById('message-log');
-        if (messageLog) {
-            const messageElement = document.createElement('div');
-            messageElement.className = `message ${type}`;
-            messageElement.textContent = text;
-            messageLog.appendChild(messageElement);
-            messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }
-        
-        // Also add to the log container in the right-hand notepad
+        // Only add to the log container in the right-hand notepad
         if (this.transmissionUI && this.transmissionUI.logContainer) {
             const logEntry = document.createElement('div');
             logEntry.className = `log-entry ${type}`;
@@ -535,17 +525,7 @@ export class GameEngine {
     }
 
     addToLog(message, type = 'info') {
-        // Add to the fixed message log at the bottom of the screen
-        const messageLog = document.getElementById('message-log');
-        if (messageLog) {
-            const messageElement = document.createElement('div');
-            messageElement.className = `message ${type}`;
-            messageElement.textContent = message;
-            messageLog.appendChild(messageElement);
-            messageElement.scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Also add to the log container in the right-hand notepad
+        // Only add to the log container in the right-hand notepad
         if (this.transmissionUI && this.transmissionUI.logContainer) {
             const logEntry = document.createElement('div');
             logEntry.className = `log-entry ${type}`;
