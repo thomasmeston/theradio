@@ -13,13 +13,13 @@ export class TransmissionUI {
         this.gameUI.className = 'game-ui visible';
         document.body.appendChild(this.gameUI);
         
-        // Create transmission info container - moved outside gameUI
+        // Create transmission info container
         this.transmissionInfo = document.createElement('div');
         this.transmissionInfo.className = 'transmission-info';
         this.transmissionInfo.style.display = 'none';
-        document.body.appendChild(this.transmissionInfo);
+        this.gameUI.appendChild(this.transmissionInfo);
         
-        // Create response box container - moved outside gameUI
+        // Create response box container
         this.responseBox = document.createElement('div');
         this.responseBox.className = 'response-box';
         this.responseBox.style.display = 'none';
@@ -29,8 +29,8 @@ export class TransmissionUI {
         this.choicesContainer.className = 'choices-container';
         this.responseBox.appendChild(this.choicesContainer);
         
-        // Add response box to document body instead of gameUI
-        document.body.appendChild(this.responseBox);
+        // Add response box to game UI
+        this.gameUI.appendChild(this.responseBox);
 
         // Create log container
         this.logContainer = document.createElement('div');
@@ -51,6 +51,14 @@ export class TransmissionUI {
         
         toggleButton.addEventListener('click', () => {
             this.gameUI.classList.toggle('collapsed');
+            this.gameUI.classList.toggle('visible');
+            
+            // Update toggle button appearance
+            if (this.gameUI.classList.contains('collapsed')) {
+                toggleButton.innerHTML = '&gt;';
+            } else {
+                toggleButton.innerHTML = '&lt;';
+            }
         });
     }
 
