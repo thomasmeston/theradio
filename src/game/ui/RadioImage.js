@@ -220,4 +220,26 @@ export class RadioImage {
             this.meterContainer.appendChild(dial);
         }
     }
+
+    // Handle window resize events
+    handleResize() {
+        // Adjust radio image size based on window size
+        if (this.container) {
+            // Get the radio image element
+            const radioImage = this.container.querySelector('.radio-image');
+            if (radioImage) {
+                // Calculate appropriate size based on window dimensions
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                
+                // Set max width and height as percentages of window size
+                const maxWidth = Math.min(windowWidth * 0.4, 500);
+                const maxHeight = Math.min(windowHeight * 0.6, 600);
+                
+                // Apply the calculated dimensions
+                radioImage.style.maxWidth = `${maxWidth}px`;
+                radioImage.style.maxHeight = `${maxHeight}px`;
+            }
+        }
+    }
 } 

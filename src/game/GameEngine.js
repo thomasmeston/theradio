@@ -660,4 +660,21 @@ export class GameEngine {
             this.handleGameOver();
         }
     }
+
+    // Handle window resize events
+    handleResize() {
+        // Update UI elements that need to respond to window size changes
+        if (this.transmissionUI && this.transmissionUI.gameUI) {
+            // Ensure the game UI doesn't exceed window height
+            const maxHeight = window.innerHeight - 100;
+            if (this.transmissionUI.gameUI.offsetHeight > maxHeight) {
+                this.transmissionUI.gameUI.style.height = `${maxHeight}px`;
+            }
+        }
+        
+        // Update radio image if it exists
+        if (this.radioImage) {
+            this.radioImage.handleResize();
+        }
+    }
 } 
