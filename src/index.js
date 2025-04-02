@@ -26,7 +26,12 @@ testImage.onload = () => {
 };
 testImage.onerror = (error) => {
     console.error('Failed to load wood texture:', error);
-    document.body.style.backgroundColor = '#1a1a1a';
+    // Try to load from a different path
+    const fallbackPath = 'src/wood_texture.png';
+    console.log('Trying fallback path:', fallbackPath);
+    backgroundContainer.style.backgroundImage = `url("${fallbackPath}")`;
+    document.body.insertBefore(backgroundContainer, document.body.firstChild);
+    document.body.insertBefore(overlay, document.body.firstChild.nextSibling);
 };
 testImage.src = images.woodTexture;
 

@@ -995,4 +995,21 @@ body {
 
 .message.info {
     color: #ffffff;
+}
+
+.resize-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: ns-resize;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    z-index: 103;
+}
+
+.resize-handle:hover {
+    background: rgba(0, 255, 0, 0.3);
 } 
