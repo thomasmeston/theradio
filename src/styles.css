@@ -55,7 +55,6 @@
     overflow-y: auto;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
     z-index: 102;
-    margin-right: 420px;
     color: #00ff00;
     font-family: 'Press Start 2P', monospace;
 }
@@ -78,7 +77,6 @@
     padding: 15px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
     z-index: 102;
-    margin-right: 420px;
     min-height: 180px;
     max-height: 300px;
     overflow-y: auto;
@@ -248,7 +246,6 @@
     justify-content: center;
     align-items: center;
     user-select: none;
-    margin-right: 420px;
     padding: 0;
     background: transparent;
 }
@@ -455,7 +452,6 @@
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
     z-index: 200;
-    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     opacity: 1;
 }
@@ -922,6 +918,16 @@ body {
 }
 
 /* Style the log entries to be more readable on the paper background */
+.log-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 10px;
+    height: calc(100% - 100px);
+}
+
 .log-entry {
     margin-bottom: 10px;
     padding: 5px;

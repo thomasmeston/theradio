@@ -10,7 +10,7 @@ export class TransmissionUI {
         // Create game UI container first
         this.gameUI = document.createElement('div');
         this.gameUI.id = 'game-ui';
-        this.gameUI.className = 'game-ui';
+        this.gameUI.className = 'game-ui visible';
         document.body.appendChild(this.gameUI);
         
         // Create transmission info container
@@ -54,7 +54,16 @@ export class TransmissionUI {
         let startY, startHeight;
         const resize = (e) => {
             const newHeight = startHeight - (e.clientY - startY);
-            this.gameUI.style.height = `${Math.max(200, Math.min(window.innerHeight - 100, newHeight))}px`;
+            // Ensure the height is within reasonable bounds
+            const minHeight = 200;
+            const maxHeight = window.innerHeight - 100;
+            this.gameUI.style.height = `${Math.max(minHeight, Math.min(maxHeight, newHeight))}px`;
+            
+            // Update the log container to fill the available space
+            if (this.logContainer) {
+                this.logContainer.style.height = `${this.gameUI.offsetHeight - 100}px`;
+                this.logContainer.style.overflowY = 'auto';
+            }
         };
 
         const stopResize = () => {
