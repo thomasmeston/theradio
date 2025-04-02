@@ -411,20 +411,10 @@ export class GameEngine {
     }
 
     addMessage(text, type = 'info') {
-        // Find or create the message-log element
-        let messageLog = document.getElementById('message-log');
+        const messageLog = document.getElementById('message-log');
         if (!messageLog) {
-            messageLog = document.createElement('div');
-            messageLog.id = 'message-log';
-            messageLog.className = 'message-log';
-            // Find the game-container and insert before it
-            const gameContainer = document.getElementById('game-container');
-            if (gameContainer) {
-                gameContainer.parentNode.insertBefore(messageLog, gameContainer);
-            } else {
-                // Fallback to body if game-container not found
-                document.body.appendChild(messageLog);
-            }
+            console.error('Message log element not found');
+            return;
         }
 
         const messageElement = document.createElement('div');
