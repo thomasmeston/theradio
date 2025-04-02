@@ -1,7 +1,7 @@
-import { transmissions, gameEvents } from './data/transmissions';
-import { TransmissionUI } from './ui/TransmissionUI';
-import { Calendar } from './ui/Calendar';
-import { RadioImage } from './ui/RadioImage';
+import { transmissions, gameEvents } from './data/transmissions.js';
+import { TransmissionUI } from './ui/TransmissionUI.js';
+import { Calendar } from './ui/Calendar.js';
+import { RadioImage } from './ui/RadioImage.js';
 import { SoundManager } from './audio/SoundManager.js';
 
 export class GameEngine {
