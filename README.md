@@ -4,7 +4,7 @@ A web-based game where players interact with a military radio interface to recei
 
 ## Play the Game
 
-Visit [https://YOUR_USERNAME.github.io/REPOSITORY_NAME](https://YOUR_USERNAME.github.io/REPOSITORY_NAME) to play the game directly in your browser.
+Visit [https://thomasmeston.github.io/theradio](https://thomasmeston.github.io/theradio) to play the game directly in your browser.
 
 ## Features
 
