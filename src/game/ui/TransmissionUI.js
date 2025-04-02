@@ -2,6 +2,11 @@ export class TransmissionUI {
     constructor(gameEngine) {
         this.gameEngine = gameEngine;
         
+        // Create and initialize all UI elements
+        this.initializeUI();
+    }
+
+    initializeUI() {
         // Create game UI container first
         this.gameUI = document.createElement('div');
         this.gameUI.id = 'game-ui';
@@ -37,6 +42,11 @@ export class TransmissionUI {
     }
 
     setupResizeHandle() {
+        if (!this.gameUI) {
+            console.error('Game UI element not initialized');
+            return;
+        }
+
         const resizeHandle = document.createElement('div');
         resizeHandle.className = 'resize-handle';
         this.gameUI.insertBefore(resizeHandle, this.gameUI.firstChild);
