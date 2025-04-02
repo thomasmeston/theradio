@@ -43,7 +43,7 @@
 
 .response-box {
     position: fixed;
-    top: 740px;
+    top: 640px;
     left: 50%;
     transform: translateX(-50%);
     width: 400px;
@@ -67,7 +67,7 @@
 
 .transmission-info {
     position: fixed;
-    top: 540px;
+    top: 440px;
     left: 50%;
     transform: translateX(-50%);
     width: 400px;
@@ -462,6 +462,14 @@
 
 #game-ui.collapsed {
     transform: translateX(calc(100% - 40px));
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#game-ui.collapsed .log-container,
+#game-ui.collapsed .resize-handle {
+    display: none;
 }
 
 /* Remove the bottom message log */
