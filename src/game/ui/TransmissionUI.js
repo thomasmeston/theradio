@@ -2,11 +2,17 @@ export class TransmissionUI {
     constructor(gameEngine) {
         this.gameEngine = gameEngine;
         
+        // Create game UI container first
+        this.gameUI = document.createElement('div');
+        this.gameUI.id = 'game-ui';
+        this.gameUI.className = 'game-ui';
+        document.body.appendChild(this.gameUI);
+        
         // Create transmission info container
         this.transmissionInfo = document.createElement('div');
         this.transmissionInfo.className = 'transmission-info';
         this.transmissionInfo.style.display = 'none';
-        document.body.appendChild(this.transmissionInfo);
+        this.gameUI.appendChild(this.transmissionInfo);
         
         // Create response box container
         this.responseBox = document.createElement('div');
@@ -18,23 +24,27 @@ export class TransmissionUI {
         this.choicesContainer.className = 'choices-container';
         this.responseBox.appendChild(this.choicesContainer);
         
-        // Add response box directly to body
-        document.body.appendChild(this.responseBox);
+        // Add response box to game UI
+        this.gameUI.appendChild(this.responseBox);
+
+        // Create log container
+        this.logContainer = document.createElement('div');
+        this.logContainer.className = 'log-container';
+        this.gameUI.appendChild(this.logContainer);
 
         // Add resize handle
         this.setupResizeHandle();
     }
 
     setupResizeHandle() {
-        const gameUI = document.getElementById('game-ui');
         const resizeHandle = document.createElement('div');
         resizeHandle.className = 'resize-handle';
-        gameUI.insertBefore(resizeHandle, gameUI.firstChild);
+        this.gameUI.insertBefore(resizeHandle, this.gameUI.firstChild);
 
         let startY, startHeight;
         const resize = (e) => {
             const newHeight = startHeight - (e.clientY - startY);
-            gameUI.style.height = `${Math.max(200, Math.min(window.innerHeight - 100, newHeight))}px`;
+            this.gameUI.style.height = `${Math.max(200, Math.min(window.innerHeight - 100, newHeight))}px`;
         };
 
         const stopResize = () => {
@@ -44,7 +54,7 @@ export class TransmissionUI {
 
         resizeHandle.addEventListener('mousedown', (e) => {
             startY = e.clientY;
-            startHeight = gameUI.offsetHeight;
+            startHeight = this.gameUI.offsetHeight;
             window.addEventListener('mousemove', resize);
             window.addEventListener('mouseup', stopResize);
         });
