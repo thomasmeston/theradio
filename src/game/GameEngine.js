@@ -64,6 +64,7 @@ export class GameEngine {
         this.soundManager.loadSound('dayEnd', 'assets/sounds/static.wav');  // Using static.wav as fallback
         this.soundManager.loadSound('transmission', 'assets/sounds/radio_beep.wav');  // Using radio_beep.wav as fallback
         this.soundManager.loadSound('buttonClick', 'assets/sounds/static_blip.wav');  // Using static_blip.wav as fallback
+        this.soundManager.loadSound('staticBlip', 'assets/sounds/static_blip.wav');  // Using static_blip.wav for staticBlip
         this.soundManager.loadSound('rainforest', 'assets/sounds/459925__rtb45__costa-rica-rainforest.wav');
         this.soundManager.loadSound('piano', 'assets/sounds/Whispers in the Canopy_piano.mp3');
         this.soundManager.loadSound('militaryVoice', 'assets/sounds/ElevenLabs_Military_1.mp3');
