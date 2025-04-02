@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the game engine
     const game = new GameEngine();
     
-    // Start the game
-    game.initialize();
+    // Start the game - using init() method
+    game.init();
     
     // Handle window resize events
     window.addEventListener('resize', () => {
