@@ -410,19 +410,28 @@ export class GameEngine {
         this.addMessage(event.message, 'event');
     }
 
-    addMessage(message, type = 'info') {
+    addMessage(text, type = 'info') {
+        // Find or create the message-log element
         let messageLog = document.getElementById('message-log');
         if (!messageLog) {
             messageLog = document.createElement('div');
             messageLog.id = 'message-log';
             messageLog.className = 'message-log';
-            document.body.appendChild(messageLog);
+            // Find the game-container and insert before it
+            const gameContainer = document.getElementById('game-container');
+            if (gameContainer) {
+                gameContainer.parentNode.insertBefore(messageLog, gameContainer);
+            } else {
+                // Fallback to body if game-container not found
+                document.body.appendChild(messageLog);
+            }
         }
+
         const messageElement = document.createElement('div');
         messageElement.className = `message ${type}`;
-        messageElement.textContent = message;
+        messageElement.textContent = text;
         messageLog.appendChild(messageElement);
-        messageElement.scrollIntoView({ behavior: 'smooth' });
+        messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
     saveGame() {
