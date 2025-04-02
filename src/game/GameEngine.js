@@ -3,6 +3,7 @@ import { TransmissionUI } from './ui/TransmissionUI.js';
 import { Calendar } from './ui/Calendar.js';
 import { RadioImage } from './ui/RadioImage.js';
 import { SoundManager } from './audio/SoundManager.js';
+import { ResourceDisplay } from './ui/ResourceDisplay.js';
 
 export class GameEngine {
     constructor() {
@@ -80,7 +81,9 @@ export class GameEngine {
         // Initialize UI components after state is ready
         this.transmissionUI = new TransmissionUI(this);
         this.radioImage = new RadioImage(this);
-        this.resourceDisplay = null;
+        
+        // Initialize resource display
+        this.resourceDisplay = new ResourceDisplay(this);
 
         // Ensure message-log exists
         let messageLog = document.getElementById('message-log');
