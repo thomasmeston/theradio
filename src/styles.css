@@ -452,24 +452,20 @@
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
     z-index: 200;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
     opacity: 1;
 }
 
 #game-ui.visible {
     transform: translateX(0);
+    width: 400px;
 }
 
 #game-ui.collapsed {
     transform: translateX(calc(100% - 40px));
-    background: transparent;
-    border: none;
-    box-shadow: none;
-}
-
-#game-ui.collapsed .log-container,
-#game-ui.collapsed .resize-handle {
-    display: none;
+    width: 40px;
+    background: none;
+    padding: 0;
 }
 
 /* Remove the bottom message log */
@@ -509,12 +505,11 @@
 }
 
 .notepad-toggle::before {
-    content: '<';
-    display: block;
+    content: none;
 }
 
 #game-ui.collapsed .notepad-toggle::before {
-    content: '>';
+    content: none;
 }
 
 /* Style the log entries to be more readable on the paper background */
