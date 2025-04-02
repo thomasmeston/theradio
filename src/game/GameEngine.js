@@ -411,10 +411,17 @@ export class GameEngine {
     }
 
     addMessage(message, type = 'info') {
+        let messageLog = document.getElementById('message-log');
+        if (!messageLog) {
+            messageLog = document.createElement('div');
+            messageLog.id = 'message-log';
+            messageLog.className = 'message-log';
+            document.body.appendChild(messageLog);
+        }
         const messageElement = document.createElement('div');
         messageElement.className = `message ${type}`;
         messageElement.textContent = message;
-        document.getElementById('message-log').appendChild(messageElement);
+        messageLog.appendChild(messageElement);
         messageElement.scrollIntoView({ behavior: 'smooth' });
     }
 
