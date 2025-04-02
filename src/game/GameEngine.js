@@ -81,6 +81,15 @@ export class GameEngine {
         this.radioImage = new RadioImage(this);
         this.resourceDisplay = null;
 
+        // Ensure message-log exists
+        let messageLog = document.getElementById('message-log');
+        if (!messageLog) {
+            messageLog = document.createElement('div');
+            messageLog.id = 'message-log';
+            messageLog.className = 'message-log';
+            document.body.appendChild(messageLog);
+        }
+
         // Set up event listeners
         this.setupEventListeners();
         
