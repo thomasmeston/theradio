@@ -47,11 +47,11 @@ class Game {
         this.resourceDisplay = new ResourceDisplay(this.gameEngine);
         this.radioImage = new RadioImage(this.gameEngine);
         
-        // Add initial day message
-        this.gameEngine.addToLog('January 12, 1945 - Amazon Radio Outpost', 'system');
-        
         // Initialize the game
         this.init();
+        
+        // Add initial day message after UI is initialized
+        this.gameEngine.addToLog('January 12, 1945 - Amazon Radio Outpost', 'system');
     }
 
     init() {
