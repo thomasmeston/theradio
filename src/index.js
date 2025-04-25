@@ -1,9 +1,9 @@
 import './styles.css';
 import { images } from './assets.js';
 import { GameEngine } from './game/GameEngine.js';
-import { SceneManager } from './game/SceneManager';
-import { ResourceDisplay } from './game/ui/ResourceDisplay';
-import { RadioImage } from './game/ui/RadioImage';
+import { SceneManager } from './game/SceneManager.js';
+import { ResourceDisplay } from './game/ui/ResourceDisplay.js';
+import { RadioImage } from './game/ui/RadioImage.js';
 
 // Debug log to check the image URL
 console.log('Wood texture URL:', images.woodTexture);
@@ -101,7 +101,12 @@ class Game {
     }
 }
 
-// Initialize game when DOM is loaded
+// Initialize the game when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.game = new Game();
+    try {
+        const game = new Game();
+        console.log('Game initialized successfully');
+    } catch (error) {
+        console.error('Error initializing game:', error);
+    }
 }); 
