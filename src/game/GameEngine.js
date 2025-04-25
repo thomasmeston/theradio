@@ -45,6 +45,21 @@ export class GameEngine {
             }
         };
 
+        // Initialize sound manager
+        this.soundManager = new SoundManager();
+        
+        // Load sound files
+        this.soundManager.loadSound('static', 'src/assets/sounds/static.wav');
+        this.soundManager.loadSound('staticBlip', 'src/assets/sounds/static_blip.wav');
+        this.soundManager.loadSound('radioBeep', 'src/assets/sounds/radio_beep.wav');
+        this.soundManager.loadSound('rainforest', 'src/assets/sounds/459925__rtb45__costa-rica-rainforest.wav');
+        this.soundManager.loadSound('piano', 'src/assets/sounds/Whispers in the Canopy_piano.mp3');
+        this.soundManager.loadSound('militaryVoice', 'src/assets/sounds/ElevenLabs_Military_1.mp3');
+        this.soundManager.loadSound('explorerVoice', 'src/assets/sounds/ElevenLabs_Explorer_1.mp3');
+        this.soundManager.loadSound('shamanVoice', 'src/assets/sounds/ElevenLabs_Shaman_1.mp3');
+        this.soundManager.loadSound('seerVoice', 'src/assets/sounds/ElevenLabs_Seer_1.mp3');
+        this.soundManager.loadSound('oldSong', 'src/assets/sounds/old_song.wav');
+
         // Generate transmission pools after state is initialized
         this.state.transmissionPools = this.generateTransmissionPools();
 
@@ -57,21 +72,6 @@ export class GameEngine {
         this.initializeDailyTransmissions();
 
         this.createDayEndPrompt();
-
-        // Initialize sound manager
-        this.soundManager = new SoundManager();
-        
-        // Load sound effects
-        this.soundManager.loadSound('dayEnd', 'assets/sounds/static.wav');  // Using static.wav as fallback
-        this.soundManager.loadSound('transmission', 'assets/sounds/radio_beep.wav');  // Using radio_beep.wav as fallback
-        this.soundManager.loadSound('buttonClick', 'assets/sounds/static_blip.wav');  // Using static_blip.wav as fallback
-        this.soundManager.loadSound('staticBlip', 'assets/sounds/static_blip.wav');  // Using static_blip.wav for staticBlip
-        this.soundManager.loadSound('rainforest', 'assets/sounds/459925__rtb45__costa-rica-rainforest.wav');
-        this.soundManager.loadSound('piano', 'assets/sounds/Whispers in the Canopy_piano.mp3');
-        this.soundManager.loadSound('militaryVoice', 'assets/sounds/ElevenLabs_Military_1.mp3');
-        this.soundManager.loadSound('explorerVoice', 'assets/sounds/ElevenLabs_Explorer_1.mp3');
-        this.soundManager.loadSound('shamanVoice', 'assets/sounds/ElevenLabs_Shaman_1.mp3');
-        this.soundManager.loadSound('seerVoice', 'assets/sounds/ElevenLabs_Seer_1.mp3');
 
         // Create fade overlay
         this.createFadeOverlay();
